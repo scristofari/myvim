@@ -33,12 +33,15 @@ let g:go_highlight_build_constraints = 1
 
 " IDE
 set number
+let mapleader=","
 set showtabline=2
 set listchars=tab:\.\ ,trail:·
 set list
 set encoding=utf-8
 set autowrite
 set autoread
+
+let NERDTreeIgnore=['\.vim$', '\~$', '^Godeps$']
 
 autocmd VimEnter * NERDTreeToggle
 autocmd TabEnter * NERDTreeToggle
@@ -49,3 +52,8 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 
 nmap <F8> :TagbarToggle<CR>
+nmap <leader>f :NERDTreeFind<CR>
+
+
+
+
