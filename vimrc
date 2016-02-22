@@ -14,6 +14,8 @@ Plugin 'crusoexia/vim-monokai'
 Plugin 'vim-airline/vim-airline'
 Plugin 'SirVer/ultisnips'
 Plugin 'Shougo/neocomplete'
+Plugin 'scrooloose/syntastic'
+Plugin 'shawncplus/phpcomplete.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -32,6 +34,7 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 " IDE
+set shell=bash
 set number
 let mapleader=","
 set showtabline=2
@@ -51,9 +54,21 @@ let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_php_checkers = ['php']
+"let g:syntastic_php_phpcs_args='--tab-width=0'
+"set tabstop=8
+
 nmap <F8> :TagbarToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
-
-
-
-
+nmap <leader>l :wincmd l<CR>
+nmap <leader>h :wincmd h<CR>
+nmap <leader>j :wincmd j<CR>
+nmap <leader>k :wincmd k<CR>
