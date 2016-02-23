@@ -9,13 +9,19 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
+
 Plugin 'fatih/vim-go'
+
 Plugin 'crusoexia/vim-monokai'
 Plugin 'vim-airline/vim-airline'
 Plugin 'SirVer/ultisnips'
 Plugin 'Shougo/neocomplete'
 Plugin 'scrooloose/syntastic'
+
 Plugin 'shawncplus/phpcomplete.vim'
+
+Plugin 'pangloss/vim-javascript'
+Plugin 'elzr/vim-json'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -43,12 +49,19 @@ set list
 set encoding=utf-8
 set autowrite
 set autoread
-
+set tabstop=4
+set shiftwidth=4
+set regexpengine=1
 let NERDTreeIgnore=['\.vim$', '\~$', '^Godeps$']
+
+au FileType php set omnifunc=phpcomplete#CompletePHP
+au! BufRead,BufNewFile *.json set filetype=json
 
 autocmd VimEnter * NERDTreeToggle
 autocmd TabEnter * NERDTreeToggle
 autocmd BufReadPost * TagbarOpen
+
+autocmd BufWritePost *.php !php-cs-fixer fix <afile>
 
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
