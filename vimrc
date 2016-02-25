@@ -18,7 +18,8 @@ Plugin 'SirVer/ultisnips'
 Plugin 'Shougo/neocomplete'
 Plugin 'scrooloose/syntastic'
 
-Plugin 'shawncplus/phpcomplete.vim'
+" Plugin 'shawncplus/phpcomplete.vim'
+" Plugin 'arnaud-lb/vim-php-namespace'
 
 Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
@@ -41,6 +42,7 @@ let g:go_highlight_build_constraints = 1
 
 " IDE
 set shell=bash
+set noswapfile
 set number
 let mapleader=","
 set showtabline=2
@@ -54,14 +56,20 @@ set shiftwidth=4
 set regexpengine=1
 let NERDTreeIgnore=['\.vim$', '\~$', '^Godeps$']
 
-au FileType php set omnifunc=phpcomplete#CompletePHP
+" au FileType php set omnifunc=phpcomplete#CompletePHP
 au! BufRead,BufNewFile *.json set filetype=json
 
 autocmd VimEnter * NERDTreeToggle
 autocmd TabEnter * NERDTreeToggle
 autocmd BufReadPost * TagbarOpen
 
-autocmd BufWritePost *.php !php-cs-fixer fix <afile>
+" autocmd BufWritePost *.php !php-cs-fixer fix <afile>
+" function! IPhpExpandClass()
+" 	call PhpExpandClass()
+"	call feedkeys('a', 'n')
+" endfunction
+" autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
+" autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
@@ -75,7 +83,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_php_checkers = ['php']
+
+" let g:syntastic_php_checkers = ['php']
 "let g:syntastic_php_phpcs_args='--tab-width=0'
 "set tabstop=8
 
