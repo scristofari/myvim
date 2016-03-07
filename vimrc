@@ -7,6 +7,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
 
@@ -43,6 +44,9 @@ let g:go_highlight_build_constraints = 1
 " IDE
 set shell=bash
 set noswapfile
+set expandtab
+set autoindent
+set smartindent
 set number
 let mapleader=","
 set showtabline=2
@@ -94,3 +98,8 @@ nmap <leader>l :wincmd l<CR>
 nmap <leader>h :wincmd h<CR>
 nmap <leader>j :wincmd j<CR>
 nmap <leader>k :wincmd k<CR>
+
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+    autocmd GUIEnter * set visualbell t_vb=
+endif
