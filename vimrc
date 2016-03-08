@@ -10,9 +10,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
-
+Plugin 'kien/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'fatih/vim-go'
-
 Plugin 'crusoexia/vim-monokai'
 Plugin 'vim-airline/vim-airline'
 Plugin 'SirVer/ultisnips'
