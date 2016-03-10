@@ -18,12 +18,9 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'SirVer/ultisnips'
 Plugin 'Shougo/neocomplete'
 Plugin 'scrooloose/syntastic'
-
-" Plugin 'shawncplus/phpcomplete.vim'
-" Plugin 'arnaud-lb/vim-php-namespace'
-
 Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
+Plugin 'easymotion/vim-easymotion'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -60,20 +57,11 @@ set shiftwidth=4
 set regexpengine=1
 let NERDTreeIgnore=['\.vim$', '\~$', '^Godeps$']
 
-" au FileType php set omnifunc=phpcomplete#CompletePHP
 au! BufRead,BufNewFile *.json set filetype=json
 
 autocmd VimEnter * NERDTreeToggle
 autocmd TabEnter * NERDTreeToggle
 autocmd BufReadPost * TagbarOpen
-
-" autocmd BufWritePost *.php !php-cs-fixer fix <afile>
-" function! IPhpExpandClass()
-" 	call PhpExpandClass()
-"	call feedkeys('a', 'n')
-" endfunction
-" autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
-" autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
@@ -88,18 +76,20 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" let g:syntastic_php_checkers = ['php']
-"let g:syntastic_php_phpcs_args='--tab-width=0'
-"set tabstop=8
-
 nmap <F8> :TagbarToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
 nmap <leader>l :wincmd l<CR>
 nmap <leader>h :wincmd h<CR>
 nmap <leader>j :wincmd j<CR>
 nmap <leader>k :wincmd k<CR>
+nmap <leader>s <Plug>(easymotion-prefix)
 
 set noerrorbells visualbell t_vb=
+
 if has('autocmd')
     autocmd GUIEnter * set visualbell t_vb=
 endif
+
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+nmap s <Plug>(easymotion-overwin-f)
+let g:EasyMotion_smartcase = 1
