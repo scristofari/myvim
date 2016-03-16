@@ -55,7 +55,9 @@ set autoread
 set tabstop=4
 set shiftwidth=4
 set regexpengine=1
+
 let NERDTreeIgnore=['\.vim$', '\~$', '^Godeps$']
+let NERDTreeShowHidden=1
 
 au! BufRead,BufNewFile *.json set filetype=json
 
