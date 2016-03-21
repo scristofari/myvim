@@ -1,7 +1,7 @@
 # myvim
 
 ##Dependency Manager: 
-* Vundle
+* [Vundle](https://github.com/VundleVim/Vundle.vim)
 
 ##Plugins:
 * [the NERD tree](https://github.com/scrooloose/nerdtree)
