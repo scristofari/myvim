@@ -15,7 +15,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'fatih/vim-go'
 Plugin 'crusoexia/vim-monokai'
 Plugin 'vim-airline/vim-airline'
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 Plugin 'Shougo/neocomplete'
 Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
@@ -27,7 +27,11 @@ filetype plugin indent on    " required
 
 " color
 syntax enable
+set t_Co=256
+set background=dark
 colorscheme monokai
+highlight Normal ctermbg=NONE
+highlight nonText ctermbg=NONE
 
 " go
 let g:go_fmt_command = "goimports"
