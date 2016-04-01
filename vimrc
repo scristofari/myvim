@@ -29,9 +29,9 @@ filetype plugin indent on    " required
 syntax enable
 set t_Co=256
 set background=dark
-colorscheme monokai
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
+:silent! colorscheme monokai
 
 " go
 let g:go_fmt_command = "goimports"
